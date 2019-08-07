@@ -1,7 +1,7 @@
 package br.com.ntconsult.cooperadosapi.service.impl;
 
 import br.com.ntconsult.cooperadosapi.entities.Cooperado;
-import br.com.ntconsult.cooperadosapi.repository.CooperadoRepository;
+import br.com.ntconsult.cooperadosapi.repositories.CooperadoRepository;
 import br.com.ntconsult.cooperadosapi.service.CooperadoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +20,7 @@ public class CooperadoServiceImpl implements CooperadoService {
 
     @Override
     public Optional<Cooperado> buscarPorCpf(String cpf) {
-        return Optional.empty();
+        log.info("Buscando por funcionário pelo CPF: {} ", cpf);
+        return Optional.ofNullable(this.cooperadoRepository.findByCpf(cpf));
     }
 }
